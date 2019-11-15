@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d hub chrome firefox"
+				sh "docker-compose up -d --no-colors hub chrome firefox"
 			}
 		}
 		stage("Run Test"){
