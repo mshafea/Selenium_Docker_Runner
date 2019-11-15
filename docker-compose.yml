@@ -40,14 +40,14 @@ services:
       - MODULE=book-flight-module.xml
     volumes:
       - ./output/book-result1:/usr/share/udemy/test-output
-  book-flight-module2:
-    image: mohshafea/selenium-docker
-    depends_on:
-      - firefox
-      - chrome
-    environment:
-      - BROWSER=firefox
-      - HUB_HOST=hub
-      - MODULE=book-flight-module.xml
-    volumes:
-      - ./output/book-result2:/usr/share/udemy/test-output
+  # book-flight-module2:
+  #   image: mohshafea/selenium-docker
+  #   depends_on:
+  #     - firefox
+  #     - chrome
+  #   environment:
+  #     - BROWSER=firefox
+  #     - HUB_HOST=hub
+  #     - MODULE=book-flight-module.xml
+  #   volumes:
+  #     - ./output/book-result2:/usr/share/udemy/test-output
