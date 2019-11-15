@@ -35,7 +35,7 @@ services:
       - firefox
       - chrome
     environment:
-      - BROWSER=chrome
+      - BROWSER=firefox
       - HUB_HOST=hub
       - MODULE=book-flight-module.xml
     volumes:
