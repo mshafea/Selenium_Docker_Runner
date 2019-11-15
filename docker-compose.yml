@@ -2,7 +2,7 @@ version: "3"
 services:
   hub:
     image: selenium/hub:3.14
-    container_name: seleniumHub
+    # container_name: seleniumHub
   firefox:
     image: selenium/node-firefox:3.14
     #    container_name: seleniumFirefox
