@@ -1,0 +1,53 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.14
+    container_name: seleniumHub
+  firefox:
+    image: selenium/node-firefox:3.14
+    #    container_name: seleniumFirefox
+    shm_size: '512m'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  chrome:
+    image: selenium/node-chrome:3.14
+    #    container_name: seleniumChrome
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  search-module:
+    image: mohshafea/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=search-module.xml
+    volumes:
+      - ./output/search-result:/usr/share/udemy/test-output
+  book-flight-module1:
+    image: mohshafea/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=book-flight-module.xml
+    volumes:
+      - ./output/book-result1:/usr/share/udemy/test-output
+  book-flight-module2:
+    image: mohshafea/selenium-docker
+    depends_on:
+      - firefox
+      - chrome
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=book-flight-module.xml
+    volumes:
+      - ./output/book-result2:/usr/share/udemy/test-output
