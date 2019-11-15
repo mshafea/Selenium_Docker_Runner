@@ -29,7 +29,7 @@ services:
       - MODULE=search-module.xml
     volumes:
       - ./output/search-result:/usr/share/udemy/test-output
-  book-flight-module1:
+  book-flight-module:
     image: mohshafea/selenium-docker
     depends_on:
       - firefox
