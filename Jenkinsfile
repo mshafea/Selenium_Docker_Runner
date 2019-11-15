@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d hub --scale chrome=2 --scale firefox=2"
+				sh "docker-compose up -d hub chrome firefox"
 			}
 		}
 		stage("Run Test"){
@@ -21,7 +21,7 @@ pipeline{
 		always{
 			archiveArtifacts artifacts: 'output/**'
 			sh "docker-compose down"
-			sh "sudo rm -rf output/"
+			// sh "sudo rm -rf output/"
 		}
 	}
 }
